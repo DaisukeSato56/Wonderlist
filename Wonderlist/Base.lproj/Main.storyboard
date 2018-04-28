@@ -40,7 +40,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="103" id="kz4-yY-mQU">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Cell" rowHeight="103" id="kz4-yY-mQU">
                                         <rect key="frame" x="0.0" y="28" width="320" height="103"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="kz4-yY-mQU" id="bvc-UI-k06">
@@ -133,6 +133,9 @@
                                             <rect key="frame" x="166" y="540" width="46" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button"/>
+                                            <connections>
+                                                <action selector="shareLINE:" destination="uGC-aE-R7K" eventType="touchUpInside" id="o2F-PW-liw"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                 </view>
@@ -143,6 +146,9 @@
                         <viewLayoutGuide key="safeArea" id="uy9-UX-Moz"/>
                     </view>
                     <navigationItem key="navigationItem" id="Oe9-eg-aO6"/>
+                    <connections>
+                        <outlet property="textView" destination="xf2-Q2-JFX" id="Iav-Yz-Dri"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Tsp-gG-cdY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

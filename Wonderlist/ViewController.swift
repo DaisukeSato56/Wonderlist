@@ -75,6 +75,58 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         return true
     }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
+
+        cell.layer.cornerRadius = 10.0
+        label = cell.contentView.viewWithTag(1) as! UILabel
+        label.text = titleArray[indexPath.row]
+        
+        return cell
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return titleArray.count
+    }
+    
+//    セルがタップされたときに発動するメソッド
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        値を渡しながら
+        count = Int(indexPath.row)
+        
+//        画面遷移
+        performSegue(withIdentifier: "next", sender: nill)
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.indentifier == "next" {
+            let nextVC:NextViewController = segue.destination as! NextViewController
+            
+            nextVC.selectedNumber = count
+        }
+    }
+    
+//    セルの編集
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+        if editingStyle == .delete {
+            
+//            titleArrayの選択された際の番号の配列に入っている文字を消去
+            titleArray.remove(at: indexPath.row)
+            
+//            配列をアプリ内へ保存
+            UserDefaults.standard.set(titleArray, forKey: "array")
+            
+            tableView.reloadData()
+        } else if editingStyle == .insert{
+            
+        }
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
