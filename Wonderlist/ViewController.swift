@@ -36,6 +36,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
 //    画面が呼び出されるときに、何度でも実行される処理をviewWillAppearに書く
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 //        アプリ内に保存されているデータを取ってくる
         
 //        Todo
@@ -100,12 +101,12 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         count = Int(indexPath.row)
         
 //        画面遷移
-        performSegue(withIdentifier: "next", sender: nill)
+        performSegue(withIdentifier: "next", sender: nil)
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.indentifier == "next" {
+        if segue.identifier == "next" {
             let nextVC:NextViewController = segue.destination as! NextViewController
             
             nextVC.selectedNumber = count
