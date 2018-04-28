@@ -27,6 +27,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         tableView.delegate = self
         tableView.dataSource = self
+        textField.delegate = self
         
         backView.layer.cornerRadius = 2.0
         
@@ -77,6 +78,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         return true
     }
     
+//    セルの高さを操る
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 107
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -114,13 +120,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
 //    セルの編集
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCellEditingStyle {
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
         if editingStyle == .delete {
             
-//            titleArrayの選択された際の番号の配列に入っている文字を消去
+            //            titleArrayの選択された際の番号の配列に入っている文字を消去
             titleArray.remove(at: indexPath.row)
             
-//            配列をアプリ内へ保存
+            //            配列をアプリ内へ保存
             UserDefaults.standard.set(titleArray, forKey: "array")
             
             tableView.reloadData()

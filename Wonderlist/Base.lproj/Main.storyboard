@@ -138,10 +138,22 @@
                                 <rect key="frame" x="0.0" y="502" width="375" height="80"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VBe-2s-JcS">
+                                <rect key="frame" x="8" y="13" width="31" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="戻る"/>
+                                <connections>
+                                    <action selector="back:" destination="6eP-lH-bTY" eventType="touchUpInside" id="XnD-kF-Wag"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="TpF-lk-IAj"/>
                     </view>
+                    <connections>
+                        <outlet property="backImageView" destination="qr8-vP-LFO" id="zjz-I5-Im9"/>
+                        <outlet property="sv" destination="Bme-Tn-vK7" id="Wgv-K9-iff"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y9t-ZX-v33" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
