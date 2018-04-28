@@ -41,7 +41,7 @@ class SettingViewController: UIViewController {
     
     @objc func selectImage(sender:UIButton){
 //        画像をUIImageViewに反映する
-        backImageView.image = UIImage(named: String(sender.tag) + "jpg")
+        backImageView.image = UIImage(named: String(sender.tag) + ".jpg")
         
 //        buttonのタグ情報をアプリ内に保存する
         UserDefaults.standard.set(String(sender.tag), forKey: "image")
